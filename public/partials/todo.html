@@ -1,0 +1,15 @@
+<div class='container' ng-controller='todoCtrl'>
+	<div class="row col-md-12">
+		<div>
+			<input type='text' class='form-control input-lg' placeholder='Enter a Todo' ng-keypress="save($event)" ng-model='todoInput'></input>
+
+		</div>
+		
+	</div>
+	 <div class="row col-md-12 todos">
+	 	<div ng-hide='todos.length > 0 '>
+	 		<h3>No Todo</h3>
+	 	</div>
+	 </div>
+	
+</div>
