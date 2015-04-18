@@ -1,12 +1,22 @@
-<html>
-Sample mean app
+<!DOCTYPE html>
+<html ng-app="skypeApp">
+<head>
+<title>Skype</title>
+<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/js/factory.js"></script>
+<script type="text/javascript" src="/js/controller.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>Skype</h1>
+<hr/>
+<ng-view></ng-view>
+</div>
+<!-- Live reload script -->
 
-
-<script src='javascripts/lib/angular/angular.js'></script>
-<script src='javascripts/app.js'></script>
-<script src='javascripts/services.js'></script>
-<script src='javascripts/controllers.js'></script>
-<script src='javascripts/filters.js'></script>
-<script src='javascripts/directives.js'></script>
-	
+</body>
 </html>

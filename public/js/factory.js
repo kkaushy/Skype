@@ -6,5 +6,9 @@ skypeApp.factory('userFactory', function($http){
 		return $http.get(urlBase);
 	}
 
+	_userService.createUser = function(User){
+		return $http.post(urlBase, User);
+	}
+
 	return _userService;
 });
