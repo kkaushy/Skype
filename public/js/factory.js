@@ -10,5 +10,9 @@ skypeApp.factory('userFactory', function($http){
 		return $http.post(urlBase, User);
 	}
 
+	_userService.getChatList = function(user){
+		return $http.get("/user/:userid/chat")
+	}
+
 	return _userService;
 });
