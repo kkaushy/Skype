@@ -1,19 +1,64 @@
 <div class='row'>
-	<div class="col-sm-4">
-		<table>
-		  <tr ng-repeat="user in userList">
-		    <td>{{ user.userName }}</td>
-		    <td>{{ user.location }}</td>
-		  </tr>
-		</table>	
-	</div>
-	<div class="col-sm-4">
-		<ul class="list-group" ng-repeat="chat in chatList">
-		  <li class="list-group-item">chat.message</li>		  
-		</ul>
-		
-		<div class="form-group">		  
-		  <input type="text" class="form-control">
+<h1>{{loggedInUser.userName}}</h1>
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+            <div class="panel-heading">
+               ONLINE USERS
+            </div>
+            <div class="panel-body">
+                <ul class="media-list" ng-repeat="user in userList|filter:{_id:'!'+loggedInUser._id}">
+				     <li class="media" ng-click="changeUser(user._id)">
+                        <div class="media-body">
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" style="max-height:40px;" src="assets/img/user.gif">
+                                </a>
+                                <div class="media-body">
+                                    <h5 >{{ user.userName }}  </h5>                                   
+                                   <small class="text-muted">Active From 3 hours</small>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+	<div class="col-sm-8">
+		<div class='panel panel-info'>
+			<div class="panel-heading">{{activeChatUser.userName}} </div>
+			<div class="panel-body" style="height:300px;overflow:auto">
+				<ul class="media-list" ng-repeat="chat in chatList|filter:{userId:activeChatUser._id}">
+					<li class="media">
+                        <div class="media-body">
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle " src="assets/img/user.png">
+                                </a>
+                                <div class="media-body">                                                    
+                                    {{chat.message}}
+                                    <br>
+
+                                   <small class="text-muted">{{chat.recievedTime|date:'medium'}}</small>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+				</ul>
+			</div> 
+
+			<div class="panel-footer">
+				<form class="row row-chat" ng-submit="sendMessage()">
+	                <div class="input-group">
+	                    <input type="text" class="form-control" placeholder="Enter Message" ng-model="message">
+	                    <span class="input-group-btn">
+	                        <button class="btn btn-info" type="submit">SEND</button>
+	                    </span>
+	                </div>
+                </form>
+            </div>   
 		</div>
 	</div>
 </div>

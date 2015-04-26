@@ -16,3 +16,22 @@ skypeApp.factory('userFactory', function($http){
 
 	return _userService;
 });
+
+skypeApp.factory('messageFactory', function($http){
+	var urlBase = '/message';
+	var _messageService = {};
+
+	_messageService.getMessageList = function(){
+		return $http.get(urlBase);
+	}
+
+	_messageService.createMessage = function(message){
+		return $http.post(urlBase, message);
+	}
+
+	// _userService.getChatList = function(user){
+	// 	return $http.get("/user/:userid/chat")
+	// }
+
+	return _messageService;
+});
